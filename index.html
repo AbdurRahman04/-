@@ -5,19 +5,39 @@
   <title>Abdur Rahman | Statistics & Demography</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    body {
+    :root {
+      --bg: #0f172a;
+      --primary: #2563eb;
+      --primary-soft: #e0edff;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.18);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #f8fafc;
-      color: #1f2937;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #1e293b, #020617);
+      color: var(--text);
+      min-height: 100vh;
     }
 
     a {
-      color: #1d4ed8;
+      color: var(--primary);
       text-decoration: none;
       cursor: pointer;
     }
@@ -26,154 +46,358 @@
       text-decoration: underline;
     }
 
-    /* Header */
+    /* NAVBAR */
+
     .navbar {
-      background: white;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #e5e7eb;
       position: sticky;
       top: 0;
       z-index: 100;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
     }
 
     .nav-inner {
-      max-width: 1150px;
-      margin: auto;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0.75rem 1.75rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      font-size: 1rem;
+      justify-content: space-between;
     }
 
     .brand {
-      font-size: 1.4rem;
       font-weight: 700;
-      color: #111827;
+      font-size: 1.35rem;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
     .brand span {
-      color: #2563eb;
+      color: var(--primary);
+    }
+
+    .brand-tagline {
+      font-size: 0.8rem;
+      color: #9ca3af;
     }
 
     .nav-links {
       display: flex;
       gap: 1.4rem;
+      font-size: 0.95rem;
     }
 
     .nav-links a {
-      padding-bottom: 2px;
-      border-bottom: 2px solid transparent;
+      color: #e5e7eb;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.18s ease-out;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.8);
     }
 
     .nav-links a.active {
-      font-weight: 600;
-      border-color: #2563eb;
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
+      border-color: transparent;
+      color: #f9fafb;
+      box-shadow: 0 8px 22px rgba(37, 99, 235, 0.55);
     }
 
-    /* Main Container */
+    /* MAIN LAYOUT */
+
+    .outer-shell {
+      max-width: 1180px;
+      margin: 2.2rem auto 3rem;
+      padding: 0 1.5rem 0.5rem;
+    }
+
     .container {
-      max-width: 1150px;
-      margin: 2.5rem auto;
       display: grid;
-      gap: 2.5rem;
-      grid-template-columns: 300px 1fr;
-      padding: 0 1.5rem;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 2rem;
     }
 
-    /* Sidebar */
+    /* SIDEBAR CARD */
+
     .sidebar {
-      background: white;
-      border-radius: 12px;
-      padding: 2rem 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      text-align: center;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem 1.9rem;
+      color: #e5e7eb;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .profile-photo-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.25rem;
     }
 
     .sidebar img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
+      width: 185px;
+      height: 185px;
+      border-radius: 26px;
       object-fit: cover;
-      border: 4px solid #e0e7ff;
-      margin-bottom: 1rem;
+      border: 3px solid rgba(191, 219, 254, 0.85);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
     }
 
     .name {
       font-size: 1.4rem;
       font-weight: 700;
-      margin-bottom: 0.2rem;
+      text-align: center;
+      margin-bottom: 0.25rem;
     }
 
     .role {
-      color: #6b7280;
       font-size: 0.95rem;
-      margin-bottom: 1.2rem;
+      text-align: center;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      background: rgba(15, 118, 110, 0.15);
+      border-radius: 999px;
+      padding: 0.25rem 0.65rem;
+      color: #a5f3fc;
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      margin: 0 auto 1.4rem;
+    }
+
+    .pill span {
+      font-size: 0.9rem;
     }
 
     .side-section {
-      text-align: left;
-      margin-top: 1.5rem;
+      margin-top: 1.35rem;
+      font-size: 0.9rem;
     }
 
     .side-section h4 {
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      color: #6b7280;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      color: #9ca3af;
+      margin-bottom: 0.55rem;
     }
 
-    ul {
-      padding-left: 1.2rem;
+    .affiliation {
+      color: #e5e7eb;
+      line-height: 1.5;
     }
 
-    /* Main Content */
+    .side-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .side-list li {
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .side-list li::before {
+      content: "•";
+      color: #60a5fa;
+    }
+
+    /* CONTACT IN SIDEBAR */
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .contact-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+
+    .contact-item a {
+      color: #e5e7eb;
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      color: #bfdbfe;
+      text-decoration: underline;
+    }
+
+    .cv-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 0.85rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.9);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.25));
+      color: #e5e7eb;
+      font-size: 0.86rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .cv-button:hover {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(59, 130, 246, 0.4));
+      text-decoration: none;
+    }
+
+    /* MAIN CONTENT CARD */
+
     .main {
-      padding: 2rem;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      min-height: 300px;
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 2rem 2.4rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      min-height: 320px;
     }
 
     .section {
-      margin-bottom: 2.2rem;
+      margin-bottom: 2.3rem;
     }
 
     .section h2 {
       font-size: 1.7rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid #2563eb;
-      padding-left: 0.6rem;
+      margin-bottom: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section h2 span.badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      background: var(--primary-soft);
+      border-radius: 999px;
+      padding: 0.15rem 0.6rem;
+    }
+
+    .section p {
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+      font-size: 0.97rem;
+      color: #374151;
+    }
+
+    .section h3 {
+      font-size: 1.05rem;
+      margin-top: 1.1rem;
+      margin-bottom: 0.45rem;
+      color: #111827;
     }
 
     .item {
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
     }
 
     .item-title {
       font-weight: 600;
+      font-size: 0.98rem;
+      color: #111827;
     }
 
     .item-meta {
-      font-size: 0.9rem;
-      color: #6b7280;
+      font-size: 0.87rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .item a {
+      font-size: 0.86rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: #374151;
+      font-size: 0.95rem;
+    }
+
+    ul li {
       margin-bottom: 0.3rem;
     }
 
-    /* Only one main section visible at a time */
+    /* TAB SECTIONS */
+
     .page-section {
       display: none;
+      animation: fadeIn 0.25s ease-out;
     }
 
     .page-section.active {
       display: block;
     }
 
-    /* Mobile */
-    @media(max-width: 900px){
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
       .container {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .sidebar {
+        order: 1;
+      }
+
+      .main {
+        order: 2;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        gap: 0.7rem;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .outer-shell {
+        padding: 0 1rem 0.5rem;
+      }
+
+      .main {
+        padding: 1.6rem 1.35rem 1.9rem;
       }
     }
   </style>
@@ -181,155 +405,298 @@
 
 <body>
 
-<!-- Navbar -->
+<!-- NAVBAR -->
 <header class="navbar">
   <div class="nav-inner">
-    <div class="brand">Abdur Rahman <span>| Statistics</span></div>
-    <div class="nav-links">
+    <div>
+      <div class="brand">
+        Abdur Rahman <span>| Statistics</span>
+      </div>
+      <div class="brand-tagline">Mortality modeling · Geospatial statistics · Machine learning</div>
+    </div>
+
+    <nav class="nav-links">
       <a data-target="about-section" class="active">About</a>
       <a data-target="research-section">Research</a>
+      <a data-target="publications-section">Publications</a>
       <a data-target="teaching-section">Teaching</a>
-      <a data-target="cv-section">CV</a>
-      <a data-target="contact-section">Contact</a>
-    </div>
+    </nav>
   </div>
 </header>
 
-<!-- Content -->
-<div class="container">
+<div class="outer-shell">
+  <div class="container">
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <img src="profile.jpg" alt="Profile Photo" />
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="profile-photo-wrapper">
+        <img src="profile.jpg" alt="Abdur Rahman" />
+      </div>
 
-    <div class="name">Abdur Rahman</div>
-    <div class="role">M.Sc. Applied Statistics — KFUPM</div>
+      <div class="name">Abdur Rahman</div>
+      <div class="role">M.Sc. Applied Statistics · KFUPM</div>
 
-    <div class="side-section">
-      <h4>Links</h4>
-      <ul>
-        <li><a href="https://orcid.org/0009-0000-5439-3346" target="_blank">ORCID</a></li>
-        <li><a href="https://github.com/AbdurRahman04" target="_blank">Github</a></li>
-      </ul>
-    </div>
+      <div class="pill">
+        <span>📊</span><span>Mortality & Demographic Modeling</span>
+      </div>
 
-    <div class="side-section">
-      <h4>Affiliation</h4>
-      Department of Mathematical Sciences<br>
-      KFUPM, Dhahran, Saudi Arabia
-    </div>
-
-    <div class="side-section">
-      <h4>Interests</h4>
-      <ul>
-        <li>Mortality forecasting</li>
-        <li>Geospatial statistics</li>
-        <li>Machine learning</li>
-        <li>Survival analysis</li>
-      </ul>
-    </div>
-  </aside>
-
-  <!-- Main Content -->
-  <main class="main">
-
-    <!-- ABOUT TAB -->
-    <div id="about-section" class="page-section active">
-      <section class="section">
-        <h2>About Me</h2>
-        <p>
-          I am Abdur Rahman, a Master’s student in Applied Statistics at King Fahd University of Petroleum and Minerals (KFUPM).
-          My research focuses on <b>Geospatial and Machine Learning Mortality Modeling of MENA Countries</b>.
-        </p>
-        <p>
-          I previously completed my BSc in Statistics from The Islamia University of Bahawalpur with a CGPA of 3.93/4.00.
-        </p>
-      </section>
-    </div>
-
-    <!-- RESEARCH + PUBLICATIONS TAB -->
-    <div id="research-section" class="page-section">
-      <section class="section">
-        <h2>Research</h2>
-        <h3>Thesis</h3>
-        <p><b>Geospatial and Machine Learning Mortality Modeling of MENA Countries</b></p>
-
-        <h3>Other Areas</h3>
-        <ul>
-          <li>Control charts for demographic monitoring</li>
-          <li>GEV-based early detection models</li>
-          <li>Hybrid deep learning for mortality forecasting</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Publications</h2>
-
-        <div class="item">
-          <div class="item-title">Hybrid deep learning for water level forecasting</div>
-          <div class="item-meta">Science of The Total Environment (STOTEN), 2025</div>
+      <div class="side-section">
+        <h4>Contact</h4>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <!-- CHANGE THIS EMAIL TO YOURS -->
+          <a href="mailto:your_email@kfupm.edu.sa">your_email@kfupm.edu.sa</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <span>Dhahran, Saudi Arabia</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🧬</div>
+          <a href="https://orcid.org/0009-0000-5439-3346" target="_blank">ORCID Profile</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🐙</div>
+          <a href="https://github.com/AbdurRahman04" target="_blank">GitHub /AbdurRahman04</a>
         </div>
 
-        <div class="item">
-          <div class="item-title">EWMA demographic monitoring using GEV models</div>
-          <div class="item-meta">Presented at IWSM 2025</div>
+        <a class="cv-button" href="Abdur_Rahman_CV.pdf" target="_blank">
+          📄 Download CV (PDF)
+        </a>
+      </div>
+
+      <div class="side-section">
+        <h4>Affiliation</h4>
+        <div class="affiliation">
+          Department of Mathematical Sciences<br>
+          King Fahd University of Petroleum and Minerals (KFUPM)<br>
+          Dhahran, Saudi Arabia
         </div>
-      </section>
-    </div>
+      </div>
 
-    <!-- TEACHING TAB -->
-    <div id="teaching-section" class="page-section">
-      <section class="section">
-        <h2>Teaching & Experience</h2>
-        <ul>
-          <li>R Language Lab Instructor — KFUPM</li>
-          <li>Python Lab Instructor — KFUPM</li>
-          <li>Teaching Assistant — KFUPM</li>
-          <li>Lister (Data Collector) — Planning & Development Board, Lahore</li>
+      <div class="side-section">
+        <h4>Research Interests</h4>
+        <ul class="side-list">
+          <li>Mortality modeling & forecasting</li>
+          <li>Geospatial statistics in demography</li>
+          <li>Machine learning for public health</li>
+          <li>GEV-based control charts</li>
+          <li>Survival analysis & time series</li>
         </ul>
-      </section>
-    </div>
+      </div>
+    </aside>
 
-    <!-- CV TAB -->
-    <div id="cv-section" class="page-section">
-      <section class="section">
-        <h2>Curriculum Vitae</h2>
-        <p>
-          <a href="Abdur_Rahman_CV.pdf" target="_blank"><b>Download Full CV (PDF)</b></a>
-        </p>
-      </section>
-    </div>
+    <!-- MAIN CONTENT -->
+    <main class="main">
 
-    <!-- CONTACT TAB -->
-    <div id="contact-section" class="page-section">
-      <section class="section">
-        <h2>Contact</h2>
-        <p>Email and references are included in my CV.</p>
-      </section>
-    </div>
+      <!-- ABOUT TAB -->
+      <div id="about-section" class="page-section active">
+        <section class="section">
+          <h2>About Me <span class="badge">Profile</span></h2>
+          <p>
+            I am Abdur Rahman, a Master of Science student in Applied Statistics at
+            King Fahd University of Petroleum and Minerals (KFUPM), Dhahran,
+            Saudi Arabia. My thesis focuses on
+            <strong>Geospatial and Machine Learning Mortality Modeling of MENA Countries</strong>.
+          </p>
+          <p>
+            I completed my Bachelor of Science in Statistics from The Islamia
+            University of Bahawalpur, Pakistan, with a CGPA of 3.93/4.00. I am
+            broadly interested in mortality forecasting, geospatial methods, and
+            the integration of machine learning techniques in demography and
+            public health.
+          </p>
+          <p>
+            My current work combines traditional demographic models with
+            modern machine learning and geostatistical methods, with the goal
+            of building reliable and interpretable tools for decision makers in
+            health and social policy.
+          </p>
+        </section>
+      </div>
 
-  </main>
+      <!-- RESEARCH TAB -->
+      <div id="research-section" class="page-section">
+        <section class="section">
+          <h2>Research <span class="badge">Thesis & Themes</span></h2>
+
+          <h3>Current Thesis</h3>
+          <p>
+            <strong>Geospatial and Machine Learning Mortality Modeling of MENA Countries</strong><br>
+            My thesis aims to improve mortality modelling and forecasting for
+            countries in the MENA region by integrating:
+          </p>
+          <ul>
+            <li>Classical demographic models such as Lee–Carter and related frameworks;</li>
+            <li>Modern machine learning methods for pattern extraction and residual modeling;</li>
+            <li>Geospatial techniques to capture regional heterogeneity and spatial dependence.</li>
+          </ul>
+          <p>
+            The project focuses on building hybrid residual learners that
+            leverage both the interpretability of classical models and the
+            flexibility of machine learning, while accounting for spatial
+            structure and data quality issues common in demographic data.
+          </p>
+
+          <h3>Methodological and Applied Interests</h3>
+          <ul>
+            <li>Designing control charts for monitoring demographic indicators such as fertility and infant mortality.</li>
+            <li>Using the <strong>Generalized Extreme Value (GEV)</strong> distribution to detect structural changes in health indicators.</li>
+            <li>Hybrid deep learning architectures for forecasting time series in environmental and demographic contexts.</li>
+            <li>Uncertainty quantification and early warning tools for public health surveillance.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- PUBLICATIONS TAB -->
+      <div id="publications-section" class="page-section">
+        <section class="section">
+          <h2>Publications <span class="badge">Articles & Manuscripts</span></h2>
+
+          <div class="item">
+            <div class="item-title">
+              Water level forecasting in coastal cities using a hybrid deep learning approach.
+            </div>
+            <div class="item-meta">
+              Rahman, A., Omar, M. H., Mahmood, T., Abbas, N., Riaz, M., &amp; Ramzan, N.
+              <em>Science of The Total Environment</em>, 1003, 180709, 2025.
+            </div>
+            <a
+              href="https://doi.org/10.1016/j.scitotenv.2025.180709"
+              target="_blank"
+            >
+              https://doi.org/10.1016/j.scitotenv.2025.180709
+            </a>
+          </div>
+
+          <div class="item">
+            <div class="item-title">
+              On Designing EWMA Charts to Model Demographic Trends with Generalized Extreme Value Distribution.
+            </div>
+            <div class="item-meta">
+              Presented at the 39th International Workshop on Statistical Modelling (IWSM 2025), Limerick, Ireland.
+            </div>
+            <a href="https://iwsm2025.ie/p52/" target="_blank">
+              Conference contribution link (IWSM 2025)
+            </a>
+          </div>
+
+          <h3>Submitted Manuscripts</h3>
+          <ul>
+            <li>
+              <strong>Optimizing Demographic Surveillance using GEV Control Charts:
+              An Advanced Approach for Monitoring Fertility Trends.</strong>
+            </li>
+            <li>
+              <strong>A Generalized Extreme Value CUSUM Framework for Detecting
+              Shifts in Infant Mortality Trends: Advancing Public Health Surveillance.</strong>
+            </li>
+            <li>
+              <strong>Hybrid Residual Learners Framework for Mortality Forecasting:
+              Integrating Lee–Carter, Renshaw–Haberman and Machine Learning Models in the MENA Region.</strong>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- TEACHING TAB -->
+      <div id="teaching-section" class="page-section">
+        <section class="section">
+          <h2>Teaching & Experience <span class="badge">Academic & Professional</span></h2>
+
+          <h3>Academic Roles</h3>
+          <div class="item">
+            <div class="item-title">R Language Lab Instructor</div>
+            <div class="item-meta">
+              King Fahd University of Petroleum &amp; Minerals (KFUPM) — Aug 2024 – Present
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="item-title">Python Language Lab Instructor</div>
+            <div class="item-meta">
+              KFUPM — Jan 2024 – Jun 2024
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="item-title">Teaching Assistant</div>
+            <div class="item-meta">
+              KFUPM — Oct 2023 – Jan 2024
+            </div>
+          </div>
+
+          <h3>Other Experience</h3>
+          <div class="item">
+            <div class="item-title">Lister (Data Collector)</div>
+            <div class="item-meta">
+              Planning &amp; Development Board, Lahore, Pakistan — Apr 2022 – Jun 2022
+            </div>
+          </div>
+
+          <h3>Selected Term Projects</h3>
+          <ul>
+            <li>
+              <strong>Evaluating Optimal Techniques for Data Fitting and Forecasting:
+              Identifying the Best Approach for Accurate Energy Consumption Prediction</strong>
+              using machine learning approaches.
+              <a href="https://shorturl.at/nyc44" target="_blank">Project link</a>
+            </li>
+            <li>
+              <strong>Statistical Analysis of Imbalanced Classification with Training Size
+              Variation and Subsampling</strong> on datasets of research papers in biomedical
+              literature.
+              <a href="https://shorturl.at/b2vp7" target="_blank">Project link</a>
+            </li>
+            <li>
+              <strong>Completely Randomized Block Design for Evaluating the Impact of
+              Parental Satisfaction, Absenteeism, and Subject Choice on Student Performance</strong>
+              with gender as a blocking factor.
+              <a href="https://shorturl.at/zF0hA" target="_blank">Project link</a>
+            </li>
+          </ul>
+
+          <h3>Conferences & Workshops</h3>
+          <ul>
+            <li>
+              Poster Presenter, <strong>IWSM 2025</strong> — 39th International Workshop on
+              Statistical Modelling, Limerick, Ireland.
+            </li>
+            <li>
+              Participant, <strong>GSR Conference 2025</strong> — 3-day international conference
+              on disruptive technologies.
+            </li>
+            <li>
+              Participant, <strong>Math Connect 2024</strong> — 3-day conference on
+              statistical and mathematical methods.
+            </li>
+          </ul>
+        </section>
+      </div>
+
+    </main>
+  </div>
 </div>
 
-<!-- Simple tab switching script -->
+<!-- TAB SWITCHING SCRIPT -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const links = document.querySelectorAll('.nav-links a');
-    const sections = document.querySelectorAll('.page-section');
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".nav-links a");
+    const sections = document.querySelectorAll(".page-section");
 
     function showSection(id) {
       sections.forEach(sec => {
-        sec.classList.toggle('active', sec.id === id);
+        sec.classList.toggle("active", sec.id === id);
       });
       links.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('data-target') === id);
+        link.classList.toggle("active", link.getAttribute("data-target") === id);
       });
     }
 
     links.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault(); // stop scrolling
-        const target = this.getAttribute('data-target');
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = this.getAttribute("data-target");
         showSection(target);
       });
     });

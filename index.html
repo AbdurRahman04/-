@@ -19,6 +19,7 @@
     a {
       color: #1d4ed8;
       text-decoration: none;
+      cursor: pointer;
     }
 
     a:hover {
@@ -59,8 +60,14 @@
       gap: 1.4rem;
     }
 
-    .nav-links a:hover {
+    .nav-links a {
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a.active {
       font-weight: 600;
+      border-color: #2563eb;
     }
 
     /* Main Container */
@@ -126,6 +133,7 @@
       background: white;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      min-height: 300px;
     }
 
     .section {
@@ -153,6 +161,15 @@
       margin-bottom: 0.3rem;
     }
 
+    /* Only one main section visible at a time */
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+
     /* Mobile */
     @media(max-width: 900px){
       .container {
@@ -169,12 +186,11 @@
   <div class="nav-inner">
     <div class="brand">Abdur Rahman <span>| Statistics</span></div>
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#cv">CV</a>
-      <a href="#contact">Contact</a>
+      <a data-target="about-section" class="active">About</a>
+      <a data-target="research-section">Research</a>
+      <a data-target="teaching-section">Teaching</a>
+      <a data-target="cv-section">CV</a>
+      <a data-target="contact-section">Contact</a>
     </div>
   </div>
 </header>
@@ -217,72 +233,108 @@
   <!-- Main Content -->
   <main class="main">
 
-    <!-- About -->
-    <section id="about" class="section">
-      <h2>About Me</h2>
-      <p>
-        I am Abdur Rahman, a Master’s student in Applied Statistics at King Fahd University of Petroleum and Minerals (KFUPM).
-        My research focuses on <b>Geospatial and Machine Learning Mortality Modeling of MENA Countries</b>.
-      </p>
-      <p>
-        I previously completed my BSc in Statistics from The Islamia University of Bahawalpur with a CGPA of 3.93/4.00.
-      </p>
-    </section>
+    <!-- ABOUT TAB -->
+    <div id="about-section" class="page-section active">
+      <section class="section">
+        <h2>About Me</h2>
+        <p>
+          I am Abdur Rahman, a Master’s student in Applied Statistics at King Fahd University of Petroleum and Minerals (KFUPM).
+          My research focuses on <b>Geospatial and Machine Learning Mortality Modeling of MENA Countries</b>.
+        </p>
+        <p>
+          I previously completed my BSc in Statistics from The Islamia University of Bahawalpur with a CGPA of 3.93/4.00.
+        </p>
+      </section>
+    </div>
 
-    <!-- Research -->
-    <section id="research" class="section">
-      <h2>Research</h2>
+    <!-- RESEARCH + PUBLICATIONS TAB -->
+    <div id="research-section" class="page-section">
+      <section class="section">
+        <h2>Research</h2>
+        <h3>Thesis</h3>
+        <p><b>Geospatial and Machine Learning Mortality Modeling of MENA Countries</b></p>
 
-      <h3>Thesis</h3>
-      <p><b>Geospatial + Machine Learning Mortality Modeling of MENA Countries</b></p>
+        <h3>Other Areas</h3>
+        <ul>
+          <li>Control charts for demographic monitoring</li>
+          <li>GEV-based early detection models</li>
+          <li>Hybrid deep learning for mortality forecasting</li>
+        </ul>
+      </section>
 
-      <h3>Other Areas</h3>
-      <ul>
-        <li>Control charts for demographic monitoring</li>
-        <li>GEV-based early detection models</li>
-        <li>Hybrid deep learning for mortality forecasting</li>
-      </ul>
-    </section>
+      <section class="section">
+        <h2>Publications</h2>
 
-    <!-- Publications -->
-    <section id="publications" class="section">
-      <h2>Publications</h2>
+        <div class="item">
+          <div class="item-title">Hybrid deep learning for water level forecasting</div>
+          <div class="item-meta">Science of The Total Environment (STOTEN), 2025</div>
+        </div>
 
-      <div class="item">
-        <div class="item-title">Hybrid deep learning for water level forecasting</div>
-        <div class="item-meta">STOTEN, 2025</div>
-      </div>
+        <div class="item">
+          <div class="item-title">EWMA demographic monitoring using GEV models</div>
+          <div class="item-meta">Presented at IWSM 2025</div>
+        </div>
+      </section>
+    </div>
 
-      <div class="item">
-        <div class="item-title">EWMA demographic monitoring using GEV models</div>
-        <div class="item-meta">Presented, IWSM 2025</div>
-      </div>
-    </section>
+    <!-- TEACHING TAB -->
+    <div id="teaching-section" class="page-section">
+      <section class="section">
+        <h2>Teaching & Experience</h2>
+        <ul>
+          <li>R Language Lab Instructor — KFUPM</li>
+          <li>Python Lab Instructor — KFUPM</li>
+          <li>Teaching Assistant — KFUPM</li>
+          <li>Lister (Data Collector) — Planning & Development Board, Lahore</li>
+        </ul>
+      </section>
+    </div>
 
-    <!-- Teaching -->
-    <section id="teaching" class="section">
-      <h2>Teaching & Experience</h2>
-      <ul>
-        <li>R Language Lab Instructor — KFUPM</li>
-        <li>Python Lab Instructor — KFUPM</li>
-        <li>Teaching Assistant — KFUPM</li>
-      </ul>
-    </section>
+    <!-- CV TAB -->
+    <div id="cv-section" class="page-section">
+      <section class="section">
+        <h2>Curriculum Vitae</h2>
+        <p>
+          <a href="Abdur_Rahman_CV.pdf" target="_blank"><b>Download Full CV (PDF)</b></a>
+        </p>
+      </section>
+    </div>
 
-    <!-- CV -->
-    <section id="cv" class="section">
-      <h2>CV</h2>
-      <p><a href="Abdur_Rahman_CV.pdf" target="_blank"><b>Download Full CV (PDF)</b></a></p>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p>Email and references are included in my CV.</p>
-    </section>
+    <!-- CONTACT TAB -->
+    <div id="contact-section" class="page-section">
+      <section class="section">
+        <h2>Contact</h2>
+        <p>Email and references are included in my CV.</p>
+      </section>
+    </div>
 
   </main>
 </div>
+
+<!-- Simple tab switching script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const links = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('.page-section');
+
+    function showSection(id) {
+      sections.forEach(sec => {
+        sec.classList.toggle('active', sec.id === id);
+      });
+      links.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('data-target') === id);
+      });
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault(); // stop scrolling
+        const target = this.getAttribute('data-target');
+        showSection(target);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>

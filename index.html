@@ -1,64 +1,377 @@
-<section class="section" id="phd" aria-labelledby="phd-heading">
-  <div class="section-intro">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Academic portfolio of Abdur Rahman">
+<title>Abdur Rahman | Statistics Research</title>
+
+<style>
+:root{--navy:#173b63;--blue:#0f5f94;--gold:#a87928;--ink:#172033;--soft:#4b5565;--line:#dce2e9;--bg:#f7f8fa;--white:#fff;--width:1100px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+a{color:var(--blue)}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line)}
+.nav{width:min(var(--width),calc(100% - 40px));min-height:66px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{color:var(--ink);font-weight:700;text-decoration:none}
+.brand span{display:block;color:#687386;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:17px}
+nav a{color:var(--soft);font-size:14px;font-weight:700;text-decoration:none}
+nav a:hover{color:var(--navy)}
+main{width:min(var(--width),calc(100% - 40px));margin:auto}
+.hero{display:grid;grid-template-columns:1fr 220px;gap:45px;align-items:center;padding:62px 0 50px}
+h1,h2,h3,p{margin-top:0}
+h1,h2{color:var(--navy);font-family:Georgia,"Times New Roman",serif;font-weight:500}
+h1{margin-bottom:14px;font-size:clamp(35px,4vw,57px);line-height:1.05}
+h2{margin:0;font-size:clamp(26px,2.7vw,34px);line-height:1.15}
+.subtitle{max-width:720px;color:var(--soft);font-family:Georgia,"Times New Roman",serif;font-size:20px;line-height:1.45}
+.intro{max-width:740px;color:var(--soft)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;padding:0;list-style:none;color:#687386;font-size:14px}
+.meta li:before{display:inline-block;width:7px;height:7px;margin-right:8px;border-radius:50%;background:var(--gold);content:""}
+.buttons{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 16px}
+.button{display:inline-block;padding:9px 16px;border:1px solid var(--navy);border-radius:7px;background:var(--navy);color:#fff;font-size:14px;font-weight:700;text-decoration:none}
+.light{background:#fff;color:var(--navy);border-color:var(--line)}
+.links{display:flex;flex-wrap:wrap;gap:15px;margin:0;padding:0;list-style:none;font-size:14px;font-weight:700}
+.portrait{display:grid;width:220px;height:245px;place-items:center;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,#dceaf3,#c7d8e5);box-shadow:0 10px 28px rgba(23,32,51,.08);color:var(--navy);font-family:Georgia,serif;font-size:52px;font-weight:700}
+section{padding:48px 0;border-top:1px solid var(--line);scroll-margin-top:70px}
+.section_head{display:grid;grid-template-columns:190px 1fr;gap:32px;margin-bottom:24px}
+.kicker{margin-bottom:7px;color:var(--blue);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.lead{max-width:760px;margin:0;color:var(--soft);font-size:16px}
+.content{max-width:780px;margin-left:222px;color:var(--soft)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-left:222px}
+.card{min-height:135px;padding:17px;border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:9px;background:var(--white)}
+.card h3{margin-bottom:7px;color:var(--navy);font-size:16px}
+.card p{margin:0;color:var(--soft);font-size:14px}
+.list{margin:0 0 0 222px;padding:0;list-style:none}
+.list li{padding:15px 0;border-bottom:1px solid var(--line)}
+.list strong{display:block;color:var(--ink)}
+.list span,.list p{color:var(--soft);font-size:14px}
+.pub{display:grid;grid-template-columns:65px 1fr;gap:18px}
+.year{color:#687386;font-size:14px;font-weight:700}
+.timeline li{display:grid;grid-template-columns:180px 1fr;gap:18px}
+.timeline time{color:#687386;font-size:14px;font-weight:700}
+footer{margin-top:15px;border-top:1px solid var(--line);background:#fff}
+.footer{display:flex;justify-content:space-between;gap:20px;width:min(var(--width),calc(100% - 40px));margin:auto;padding:22px 0;color:#687386;font-size:14px}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.portrait{order:-1}.section_head{grid-template-columns:1fr}.content,.cards,.list{margin-left:0}.cards{grid-template-columns:1fr}}
+@media(max-width:600px){.nav{padding:10px 0;align-items:flex-start}.hero{padding:45px 0}.pub,.timeline li{grid-template-columns:1fr;gap:5px}.footer{flex-direction:column}}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="#top">
+      Abdur Rahman
+      <span>Applied Statistics</span>
+    </a>
+
+    <nav>
+      <a href="#profile">Profile</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#phd">PhD Interests</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#activities">Activities</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
     <div>
-      <p class="section-kicker">PhD interests</p>
-      <h2 id="phd-heading">Research directions for doctoral study</h2>
+      <h1>Abdur Rahman</h1>
+
+      <p class="subtitle">
+        Statistical inference and probability modelling for forecasting and
+        process monitoring in population environmental and health data.
+      </p>
+
+      <p class="intro">
+        I am an MSc graduate in Applied Statistics from King Fahd University
+        of Petroleum and Minerals. My research combines statistical inference
+        probability models and extreme value methods for forecasting and
+        machine learning applications.
+      </p>
+
+      <ul class="meta">
+        <li>Prospective PhD researcher in Statistics</li>
+        <li>KFUPM Dhahran Saudi Arabia</li>
+      </ul>
+
+      <div class="buttons">
+        <a class="button" href="Abdur_Rahman_CV.pdf">View CV</a>
+        <a class="button light" href="mailto:abdurrahman53616@gmail.com">Email me</a>
+      </div>
+
+      <ul class="links">
+        <li><a href="https://www.linkedin.com/in/abdur-rahman-8aa0a914a/">LinkedIn</a></li>
+        <li><a href="https://github.com/AbdurRahman04">GitHub</a></li>
+        <li><a href="https://orcid.org/0009-0000-5439-3346">ORCID</a></li>
+      </ul>
     </div>
 
-    <p class="section-lead">
-      I am seeking doctoral study in Statistics with an interest in research
-      that connects mathematical statistics and statistical inference with
-      useful computational methods.
-    </p>
+    <div class="portrait">AR</div>
+  </section>
+
+  <section id="profile">
+    <div class="section_head">
+      <div>
+        <p class="kicker">Profile</p>
+        <h2>Statistics researcher</h2>
+      </div>
+
+      <p class="lead">
+        My master’s research examines statistical and machine learning
+        approaches to mortality modelling and forecasting in the Middle East
+        and North Africa.
+      </p>
+    </div>
+
+    <div class="content">
+      <p>
+        I hold a Bachelor of Science in Statistics from The Islamia University
+        of Bahawalpur in Pakistan. My work focuses on mortality forecasting
+        extreme value methods and statistical monitoring for demographic
+        environmental and public health data.
+      </p>
+
+      <p>
+        I am interested in interpretable statistical methods that connect
+        probability modelling with estimation testing and uncertainty
+        quantification.
+      </p>
+    </div>
+
+    <ul class="list">
+      <li>
+        <strong>Master of Science in Applied Statistics</strong>
+        <span>King Fahd University of Petroleum and Minerals Saudi Arabia 2025</span>
+      </li>
+
+      <li>
+        <strong>Bachelor of Science in Statistics</strong>
+        <span>The Islamia University of Bahawalpur Pakistan</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="research">
+    <div class="section_head">
+      <div>
+        <p class="kicker">Research</p>
+        <h2>Applied research</h2>
+      </div>
+
+      <p class="lead">
+        My applied work focuses on mortality and environmental data using
+        forecasting models statistical monitoring and extreme value methods.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <h3>Mortality modelling</h3>
+        <p>
+          Demographic models for describing mortality patterns and producing
+          reliable population forecasts.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Environmental forecasting</h3>
+        <p>
+          Time series models for air pollution water level and other
+          environmental indicators.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Statistical monitoring</h3>
+        <p>
+          EWMA and CUSUM charts for detecting important changes in demographic
+          and health data.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="section_head">
+      <div>
+        <p class="kicker">Publications</p>
+        <h2>Research output</h2>
+      </div>
+
+      <p class="lead">
+        Journal articles and ongoing work in monitoring forecasting extreme
+        values and public health.
+      </p>
+    </div>
+
+    <div class="list">
+      <article class="pub">
+        <div class="year">2026</div>
+        <div>
+          <strong>On designing EWMA charts to model demographic trends with generalized extreme value distribution</strong>
+          <p>Rahman et al. Mathematical Population Studies.</p>
+          <a href="https://doi.org/10.1080/08898480.2026.2702395">View article</a>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="year">2026</div>
+        <div>
+          <strong>Modeling and forecasting air pollution for public health protection based on machine learning and time series models</strong>
+          <p>Daniyal et al. BMC Public Health.</p>
+          <a href="https://doi.org/10.1186/s12889-025-26164-9">View article</a>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="year">2025</div>
+        <div>
+          <strong>Water level forecasting in coastal cities using a hybrid deep learning approach</strong>
+          <p>Rahman et al. Science of the Total Environment.</p>
+          <a href="https://doi.org/10.1016/j.scitotenv.2025.180709">View article</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="phd">
+    <div class="section_head">
+      <div>
+        <p class="kicker">PhD Interests</p>
+        <h2>Research directions</h2>
+      </div>
+
+      <p class="lead">
+        I am seeking doctoral study in Statistics with an interest in
+        mathematical statistics statistical inference and computational methods.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <h3>Statistical inference</h3>
+        <p>
+          Estimation testing and uncertainty quantification for complex data.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Mathematical statistics</h3>
+        <p>
+          Probability models stochastic processes and asymptotic methods for
+          principled statistical analysis.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Dependence modelling</h3>
+        <p>
+          Methods for multivariate data dependence structures and high
+          dimensional observations.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Sequential inference</h3>
+        <p>
+          Online methods and control charts for detecting meaningful changes.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Extreme values</h3>
+        <p>
+          Extreme value models for rare events and high impact observations.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <div class="section_head">
+      <div>
+        <p class="kicker">Teaching</p>
+        <h2>Academic experience</h2>
+      </div>
+
+      <p class="lead">
+        Experience teaching statistical programming and supporting applied data
+        analysis in academic settings.
+      </p>
+    </div>
+
+    <ul class="list timeline">
+      <li>
+        <time>Aug 2024 to present</time>
+        <div>
+          <strong>R Programming Lab Instructor</strong>
+          <p>King Fahd University of Petroleum and Minerals</p>
+        </div>
+      </li>
+
+      <li>
+        <time>Jan 2024 to Jun 2024</time>
+        <div>
+          <strong>Python Programming Lab Instructor</strong>
+          <p>King Fahd University of Petroleum and Minerals</p>
+        </div>
+      </li>
+
+      <li>
+        <time>Oct 2023 to Jan 2024</time>
+        <div>
+          <strong>Teaching Assistant</strong>
+          <p>King Fahd University of Petroleum and Minerals</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="activities">
+    <div class="section_head">
+      <div>
+        <p class="kicker">Activities</p>
+        <h2>Academic service</h2>
+      </div>
+
+      <p class="lead">
+        Participation in academic service conferences and university activities.
+      </p>
+    </div>
+
+    <ul class="list">
+      <li>
+        <strong>Institute of Mathematical Statistics</strong>
+        <span>Active member</span>
+      </li>
+
+      <li>
+        <strong>International Workshop on Statistical Modelling</strong>
+        <span>Poster presenter in Limerick Ireland 2025</span>
+      </li>
+
+      <li>
+        <strong>KFUPM Voluntary Day Program</strong>
+        <span>Team leader 2024</span>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="footer">
+    <span>© <span id="year"></span> Abdur Rahman. Statistics Research.</span>
+    <a href="#top">Back to top</a>
   </div>
+</footer>
 
-  <div class="research-grid">
-    <article class="research-card">
-      <h3>Statistical inference</h3>
-      <p>
-        Estimation testing and uncertainty quantification for complex data.
-      </p>
-    </article>
-
-    <article class="research-card">
-      <h3>Mathematical statistics</h3>
-      <p>
-        Probability models stochastic processes and asymptotic methods for
-        principled statistical analysis.
-      </p>
-    </article>
-
-    <article class="research-card">
-      <h3>Dependence modelling</h3>
-      <p>
-        Methods for multivariate data dependence structures and high
-        dimensional observations.
-      </p>
-    </article>
-
-    <article class="research-card">
-      <h3>Sequential inference and monitoring</h3>
-      <p>
-        Control charts and online methods for detecting meaningful changes in
-        demographic environmental and health systems.
-      </p>
-    </article>
-
-    <article class="research-card">
-      <h3>Extreme values and dependence</h3>
-      <p>
-        Extreme value models with dependence structures and uncertainty
-        quantification for rare and high impact events.
-      </p>
-    </article>
-  </div>
-
-  <div class="prose">
-    <p>
-      This portfolio is designed for doctoral applications across universities.
-      It presents a clear Statistics profile while allowing each application
-      statement to explain the specific fit with a prospective supervisor and
-      department.
-    </p>
-  </div>
-</section>
+<script>
+document.querySelector("#year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
